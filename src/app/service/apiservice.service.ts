@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { IReqLogin } from '../models/reqILogin.interface';
+import { Observable } from 'rxjs';
+import { IResLogin } from '../models/resILogin.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +13,10 @@ export class ApiserviceService {
 
   constructor(private http:HttpClient) { }//Constructor de dependencias
 
-  login(){
+  login(datos: IReqLogin):Observable<IResLogin>{
     let url = `${this.urlApi}/user/login`;//concateno Endpoint + metodo (index metodos y rutas)
+    //console.log('prueba')
+    console.log('datos para enviar', datos)
+    return this.http.post<IResLogin>(url, datos)
   }
 }

@@ -1,4 +1,4 @@
 export interface IReqLogin {
-    user: String,
+    usu: String,
     pass: String
 }
