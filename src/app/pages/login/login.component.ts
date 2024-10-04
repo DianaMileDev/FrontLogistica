@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
-import { ApiserviceService } from '../../service/apiservice.service';
 import { HttpClientModule } from '@angular/common/http';
-import { IReqLogin } from '../../models/reqILogin.interface';
+import { ApiService } from '../../service/api.service';
+import { IReqLogin } from '../../models/IReqLogin.interface';
 
 @Component({
   selector: 'app-login',
   standalone:true,
   imports:[ IonicModule, ReactiveFormsModule, HttpClientModule],
-  providers: [ApiserviceService],
+  providers: [ApiService],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
 })
@@ -17,7 +17,7 @@ export class LoginComponent  implements OnInit {
 
   frmLogin:FormGroup;
 
-  constructor(private apiService: ApiserviceService) {
+  constructor(private apiService: ApiService) {
     this.frmLogin=new FormGroup({
       usu:new FormControl('', Validators.required),
       pass:new FormControl('',Validators.required)
@@ -25,7 +25,7 @@ export class LoginComponent  implements OnInit {
    }
 
   login(form: IReqLogin){
-    //console.log('datos de entrada',form);
+    console.log(form);
     this.apiService.login(form).subscribe(retorno => {
       console.log(retorno);
     })

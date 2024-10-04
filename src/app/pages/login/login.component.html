@@ -15,7 +15,7 @@
         <ion-card-title>Iniciar Sesión</ion-card-title>
       </ion-card-header>
       <ion-card-content>
-        <form [formGroup]="frmLogin" (ngSubmit)="login(frmLogin.value)">
+        <form [formGroup]="frmLogin">
           <ion-item>
             <ion-label position="floating">Usuario</ion-label>
             <ion-input type="email" formControlName="usu"></ion-input>
@@ -24,7 +24,7 @@
             <ion-label position="floating">Contraseña</ion-label>
             <ion-input type="password" formControlName="pass"></ion-input>
           </ion-item>
-          <ion-button type="ngSubmit">Ingresar</ion-button>
+          <ion-button (click)="login(frmLogin.value)">Ingresar</ion-button>
         </form>
       </ion-card-content>
     </ion-card>

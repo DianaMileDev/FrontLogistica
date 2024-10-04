@@ -15,7 +15,7 @@
         <ion-card-title>Contacto</ion-card-title>
       </ion-card-header>
       <ion-card-content>
-        <form [formGroup]="frmContact" (ngSubmit)="contactar()">
+        <form [formGroup]="frmContact">
           <ion-item>
             <ion-label position="floating">Nombres</ion-label>
             <ion-input type="text" formControlName="nameCont"></ion-input>
@@ -32,7 +32,7 @@
             <ion-label position="floating">Mensaje</ion-label>
             <ion-input type="text" formControlName="message"></ion-input>
           </ion-item>
-          <ion-button type="ngSubmit">Contactarse</ion-button>
+          <ion-button (click)="contactar(frmContact.value)">Contactarse</ion-button>
         </form>
       </ion-card-content>
     </ion-card>
