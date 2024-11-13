@@ -4,6 +4,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { GuiasComponent } from './pages/guias/guias.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { ContactComponent } from './pages/contact/contact.component';
+import { PictureComponent } from './pages/picture/picture.component';
 
 export const routes: Routes = [
     {
@@ -30,5 +31,9 @@ export const routes: Routes = [
     {
         path: 'contact',
         component: ContactComponent
+    },
+    {
+        path: 'picture',
+        component: PictureComponent
     }
 ];
